@@ -42,4 +42,13 @@ def update
   SqlRunner.run(sql)
 end
 
+def customers
+  sql = "SELECT customers.* FROM customers INNER JOIN tickets ON tickets.customer_id = customers.id WHERE film_id = #{@id}"
+  return Customer.get_many(sql)
+end
+
+# def buy_ticket(customer)
+#   customer.pay_for_ticket(@price)
+# end
+
 end

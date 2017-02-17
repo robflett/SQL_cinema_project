@@ -42,4 +42,18 @@ class Customer
     SqlRunner.run(sql)
   end
 
+  def films
+    sql = "SELECT films.* FROM films INNER JOIN tickets ON tickets.film_id = films.id WHERE customer_id = #{@id}"
+    return Film.get_many(sql)
+  end
+
+  # def pay_for_ticket(price)
+  #   @funds = @funds - price
+  # end
+
+  def buy_ticket_decrease_funds
+    sql = "UPDATE customers SET funds = funds - price FROM films"
+    SqlRunner.run(sql)
+  end
+
 end

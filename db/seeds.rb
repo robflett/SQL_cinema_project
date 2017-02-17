@@ -43,7 +43,10 @@ ticket3.save()
 ticket4 = Ticket.new({ 'customer_id' => customer2.id, 'film_id' => film3.id})
 ticket4.save()
 
-
+def test_customer_can_buy_ticket
+  @film1.buy_ticket(@customer1)
+  assert_equal(50, @customer1.funds)
+end
 
 binding.pry
 
