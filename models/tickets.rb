@@ -41,4 +41,9 @@ class Ticket
     return self.get_many(sql)
   end
 
+  def update #method available and correct but causes Foreign Key errors.
+    sql = "UPDATE tickets SET (customer_id, film_id) = (#{@customer_id}, #{@film_id}) WHERE id = #{@id}"
+    SqlRunner.run(sql)
+  end
+
 end
