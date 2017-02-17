@@ -23,12 +23,22 @@ class Ticket
   end
 
   def self.all()
-    sql = "SELECT * FROM tickets"
+    sql = "SELECT * FROM tickets;"
     #tickets = SqlRunner.run(sql)
     # result = tickets.map { |ticket| Ticket.new( ticket ) }
     # return result
     return self.get_many(sql)
   end
 
+  def self.get_many(sql)
+    tickets = SqlRunner.run(sql)
+    result = tickets.map { |ticket| Ticket.new( ticket ) }
+    return result
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM tickets;"
+    return self.get_many(sql)
+  end
 
 end
