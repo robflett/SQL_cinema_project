@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS tickets.rb;
-DROP TABLE IF EXISTS customers.rb
-DROP TABLE IF EXISTS films.rb
+DROP TABLE IF EXISTS customers.rb;
+DROP TABLE IF EXISTS films.rb;
 
 
 CREATE TABLE customers(
