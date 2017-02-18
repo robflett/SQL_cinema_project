@@ -31,22 +31,22 @@ film3.save()
 
 
 
-ticket1 = Ticket.new({ 'customer_id' => customer1.id, 'film_id' => film1.id})
+ticket1 = Ticket.new({ 'customer_id' => customer1.id, 'film_id' => film1.id, 'time' => '13:30:00'})
 ticket1.save()
 
-ticket2 = Ticket.new({ 'customer_id' => customer2.id, 'film_id' => film2.id})
+ticket2 = Ticket.new({ 'customer_id' => customer2.id, 'film_id' => film2.id, 'time' => '16:45:00'})
 ticket2.save()
 
-ticket3 = Ticket.new({ 'customer_id' => customer3.id, 'film_id' => film1.id})
+ticket3 = Ticket.new({ 'customer_id' => customer3.id, 'film_id' => film1.id, 'time' => '20:10:00'})
 ticket3.save()
 
-ticket4 = Ticket.new({ 'customer_id' => customer2.id, 'film_id' => film3.id})
+ticket4 = Ticket.new({ 'customer_id' => customer2.id, 'film_id' => film3.id, 'time' => '21:30:00'})
 ticket4.save()
 
-def test_customer_can_buy_ticket
-  @film1.buy_ticket(@customer1)
-  assert_equal(50, @customer1.funds)
-end
+# def test_customer_can_buy_ticket
+#   @film1.buy_ticket(@customer1)
+#   assert_equal(50, @customer1.funds)
+# end
 
 binding.pry
 
