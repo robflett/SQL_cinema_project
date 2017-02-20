@@ -12,7 +12,7 @@ class Ticket
     @id = options['id'].to_i
     @customer_id = options['customer_id'].to_i
     @film_id = options['film_id'].to_i
-    @time = options['time'].to_i
+    @time = options['time']
 
   end
 
@@ -45,6 +45,14 @@ class Ticket
   def update #method available and correct but causes Foreign Key errors.
     sql = "UPDATE tickets SET (customer_id, film_id) = (#{@customer_id}, #{@film_id}) WHERE id = #{@id}"
     SqlRunner.run(sql)
+  end
+
+  def showings
+    sql = "SELECT * FROM customers
+  FULL OUTER JOIN films
+  ON customers.name = tickets.time
+  "
+    return Ticket.get_many(sql)
   end
 
 end

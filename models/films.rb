@@ -51,9 +51,6 @@ end
 #   customer.pay_for_ticket(@price)
 # end
 
-def showings
-  sql = "SELECT tickets.* FROM tickets INNER JOIN films ON tickets.film_id = films.id WHERE ticket_id = #{@id}"
-  return Ticket.get_many(sql)
-end
+
 
 end
